@@ -1,5 +1,4 @@
 class BookmarksController < ApplicationController
-
   def new
     @list = List.find(params[:list_id])
     @bookmark = Bookmark.new
@@ -24,6 +23,7 @@ class BookmarksController < ApplicationController
   end
 
   private
+
   def strong_bookmark
     params.require(:bookmark).permit(:comment, :movie_id)
   end
