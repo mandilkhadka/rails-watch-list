@@ -7,5 +7,5 @@
     <%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
   <% end %>
 </ol>
-<%= link_to "Add a bookmark", new_list_bookmark_path(@list) %>
-
+<h4><%= link_to "Add a bookmark", new_list_bookmark_path(@list) %></h4>
+<h4><%= link_to "Go to see all your lists", root_path %></h4>
