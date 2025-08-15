@@ -1,11 +1,16 @@
-<h1>Show page</h1>
-<ol>
-  <p><%= @list.name %></p>
+<h2 class=m-4 ><%= @list.name %></h2>
+<%= link_to "Go to see all your lists", root_path, class: "btn btn-primary m-2" %>
+<%= link_to "Add a bookmark", new_list_bookmark_path(@list), class: "btn btn-primary m-2"  %>
+<div class="container">
   <% @list.bookmarks.each do |bookmark| %>
-    <h2><%= bookmark.movie.title %></h2>
-    <li><%= bookmark.comment %></li>
-    <%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-  <% end %>
-</ol>
-<h4><%= link_to "Add a bookmark", new_list_bookmark_path(@list) %></h4>
-<h4><%= link_to "Go to see all your lists", root_path %></h4>
+    <div class="card" style="width: 18rem;">
+      <%= image_tag bookmark.movie.poster_url %>
+      <div class="card-body">
+        <h5 class="card-title"><%= bookmark.movie.title %></h5>
+        <p class="card-text"><%= bookmark.movie.overview %></p>
+        <h3 class=m-4 >📝<%= bookmark.comment %></h3>
+        <%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-danger" %>
+      <% end %>
+    </div>
+  </div>
+</div>
