@@ -25,5 +25,4 @@ class ListsController < ApplicationController
   def strong_list
     params.require(:list).permit(:name, :photo)
   end
-  
 end
